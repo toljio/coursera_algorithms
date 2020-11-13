@@ -1,0 +1,7 @@
+/.lift/
+*.class
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
