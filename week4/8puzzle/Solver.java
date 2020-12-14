@@ -10,15 +10,17 @@ public class Solver {
     private static class SearchNode implements Comparable<SearchNode> {
         private final Board board;
         private final int moves;
+        private final int manhattan;
         private final SearchNode prev;
 
         public SearchNode(Board board, int moves, SearchNode prev) {
             this.board = board;
             this.moves = moves;
             this.prev = prev;
+            this.manhattan = this.board.manhattan();
         }
         public int compareTo(SearchNode that) {
-            return this.moves + this.board.manhattan() - (that.moves + that.board.manhattan());
+            return this.moves + this.manhattan - (that.moves + that.manhattan);
         }
     }
     // find a solution to the initial board (using the A* algorithm)
